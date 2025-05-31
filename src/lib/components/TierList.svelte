@@ -42,7 +42,6 @@
     padding: 1rem 0;
     box-sizing: border-box;
 
-    /* allow cards to shrink to 180px but grow to fill the row */
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
   }
