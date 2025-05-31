@@ -1,4 +1,4 @@
-import db from '$lib/server/db.js';
+import db from '$lib/server/db.server.js';
 import { error } from '@sveltejs/kit';
 
 export async function load({ params }) {
