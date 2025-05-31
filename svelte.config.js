@@ -1,19 +1,17 @@
-import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import adapter from '@sveltejs/adapter-netlify';
 
 export default {
-  preprocess: vitePreprocess(),
+	kit: {
+		// default options are shown
+		adapter: adapter({
+			// if true, will create a Netlify Edge Function rather
+			// than using standard Node-based functions
+			edge: false,
 
-  kit: {
-    adapter: adapter(),
-    // If you already have a `vite: {}` section, just merge the `build.rollupOptions.external` below into it.
-    vite: {
-      build: {
-        rollupOptions: {
-          // Tells Rollup “when you see `import 'mongodb'`, treat it as external—never bundle it.”
-          external: ['mongodb']
-        }
-      }
-    }
-  }
+			// if true, will split your app into multiple functions
+			// instead of creating a single one for the entire app.
+			// if `edge` is true, this option cannot be used
+			split: false
+		})
+	}
 };
